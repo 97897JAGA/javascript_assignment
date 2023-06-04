@@ -1,0 +1,30 @@
+function firstUniqChar(s) {
+  const charCount = new Map();
+  for (let i = 0; i < s.length; i++) 
+  {
+    const char = s[i];
+    if (charCount.has(char))
+	{
+      charCount.set(char, charCount.get(char) + 1);
+    } else 
+	{
+      charCount.set(char, 1);
+    }
+  }
+  for (let i = 0; i < s.length; i++)
+  {
+    const char = s[i];
+    if (charCount.get(char) === 1)
+	{
+      return i;
+    }
+  }
+
+  return -1; 
+}
+const s1 = "leetcode";
+console.log(firstUniqChar(s1));  
+const s2 = "loveleetcode";
+console.log(firstUniqChar(s2)); 
+const s3 = "aabb";
+console.log(firstUniqChar(s3)); 
